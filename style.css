@@ -1,0 +1,25 @@
+body {
+    font-family: Arial sans-serif;
+}
+
+/* bid box ui */
+#bidsBox {
+    border: 1px solid black;
+    background-color: #fcefdc;
+    padding: 10px;
+    width: 250px;
+    margin-bottom: 20px;
+
+}
+
+.inputrow {
+    margin: 10px 0;
+}
+
+#highestBox {
+    border:  1px solid black;
+    background-color: #90ee90;
+    padding: 10px;
+    width: 250px;
+    margin-top: 10px;
+}
