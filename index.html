@@ -12,35 +12,36 @@
         <div id="bidsBox">
         <!-- bid box -->
 
-        <h4><b>bidder1</b></h4>
+        <div id="bidder1Box"><b>bidder1</b><div id="bidder1Bid"></div></div>
         <!-- bidder one number -->
 
-        <h4></b>bidder2</b></h4>
+        <div id="bidder2Box"><b>bidder2</b><div id="bidder2Bid"></div></div>
        <!-- bidder two number -->
        </div>
 
        <div class="inputRow">
        <!-- bidding textfield -->
-       <h2>Bidder 1: <!-- text field--> </h2>
-       <input>
-       <button>Place Bid</button>
+       <label>Bidder 1: <!-- text field--> </label>
+       <input type="number" id="bidder1Input">
+       <button onclick="placeBid(1)">Place Bid</button>
        </div>
 
        <div class="inputRow">
-       <h2>Bidder 2: <!-- text field-->  </h2>
-       <input>
-       <button>Place Bid</button>
+       <label>Bidder 2: <!-- text field-->  </label>
+       <input type="number" id="bidder2Input">
+       <button onclick="placeBid(2)">Place Bid</button>
       </div>
+
        <!-- button to erase bid -->
-       <button>clear bids</button>
+       <button onclick="clearBids()">Clear Bids</button>
       
 
        <!-- highest bidder win -->
        <div id="highestBox">
-       <h2>Highest Bidder</h2>
+        <h3 id="highestBidder">Highest Bidder: None</h3>
      
     </div>
        <!-- bidder winner and value -->
-
+       <script src="index.js"></script>
     </body>
 </html>
