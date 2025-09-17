@@ -2,6 +2,7 @@
 
 window.onload = function() {
     loadBids()
+    updateHighest()
 
 };
 
@@ -21,10 +22,31 @@ function placeBid(bidder) {
     // update ui
     document.getElementById(`bidder${bidder}Bid`).innerText = `$${bidValue}`;
 
-    
+    // update Highest bid
+      updateHighest();
+      
+    //  clear input
+    input.value = "";
+
 }
 
-
+function updateHighest() {
+    const bid1 = parseInt(localStorage.getItem("bidder1"), 10) || 0;
+    const bid2 = parseInt(localStorage.getItem("bidder2"), 10) || 0;
+  
+    let highest = "None";
+    if (bid1 === 0 && bid2 === 0) {
+      highest = "None";
+    } else if (bid1 > bid2) {
+      highest = `bidder1 - $${bid1}`;
+    } else if (bid2 > bid1) {
+      highest = `bidder2 - $${bid2}`;
+    } else {
+      // tie
+      highest = `Tie at $${bid1}`;
+    }
+  document.getElementById("highestBidder").innerText = `Highest Bidder: ${highest}`;
+}
 
 function loadBids() {
     const bid1 = localStorage.getItem("bidder1");
@@ -32,12 +54,20 @@ function loadBids() {
 
     if (bid1) document.getElementById("bidder1Bid").innerText = `$${bid1}`;
     if (bid2) document.getElementById("bidder2Bid").innerText = `$${bid2}`;
+
+    updateHighest();
 }
 
 
 
 function clearBids() {
+    // erase localstorage data
     localStorage.clear();
     document.getElementById("bidder1Bid").innerText = "";
     document.getElementById("bidder2Bid").innerText = "";
+
+    document.getElementById("bidder1Bid").innerText = "";
+    document.getElementById("bidder2Bid").innerText = "";
+    document.getElementById("highestBidder").innerText = "Highest Bidder: none";
 }
+
